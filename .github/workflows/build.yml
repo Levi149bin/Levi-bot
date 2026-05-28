@@ -30,7 +30,7 @@ jobs:
           arduino-cli compile --fqbn esp32:esp32:esp32 --export-binaries Levibot/
 
       - name: Upload Binary
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Levibot-firmware
           path: Levibot/*.bin
