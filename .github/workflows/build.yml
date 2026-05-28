@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     steps:
       - uses: actions/checkout@v4
 
@@ -15,7 +17,7 @@ jobs:
 
       - name: Install ESP32 Board
         run: |
-          arduino-cli core update-index --config-file arduino-cli.yaml
+          arduino-cli core update-index
           arduino-cli core install esp32:esp32
 
       - name: Install Libraries
@@ -27,10 +29,12 @@ jobs:
 
       - name: Compile Sketch
         run: |
-          arduino-cli compile --fqbn esp32:esp32:esp32 --export-binaries Levibot/Levibot.ino
+          arduino-cli compile --fqbn esp32:esp32:esp32 .github/workflows/Levibot/Levibot.ino --export-binaries .github/workflows/Levibot/
 
       - name: Upload Binary
         uses: actions/upload-artifact@v4
         with:
           name: Levibot-firmware
-          path: Levibot/build/**/*.bin
+          path: .github/workflows/Levibot/build/**/*.bin
+
+  
