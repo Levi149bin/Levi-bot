@@ -27,10 +27,10 @@ jobs:
 
       - name: Compile Sketch
         run: |
-          arduino-cli compile --fqbn esp32:esp32:esp32 --export-binaries Levibot/
+          arduino-cli compile --fqbn esp32:esp32:esp32 --export-binaries Levibot/Levibot.ino
 
       - name: Upload Binary
         uses: actions/upload-artifact@v4
         with:
           name: Levibot-firmware
-          path: Levibot/*.bin
+          path: Levibot/build/**/*.bin
