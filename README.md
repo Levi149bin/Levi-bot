@@ -281,8 +281,10 @@ Mode: [Auto 🤖][Manual 🎮]
 ```
 FORWARD  → both motors forward
 BACKWARD → both motors backward
-LEFT     → right motor forward, left stop
-RIGHT    → left motor forward, right stop
+LEFT     → right motor forward,
+            left motor backward
+RIGHT    → left motor forward, 
+            right motor backward
 SPIN     → motors opposite directions
 WIGGLE   → alternate left right quickly
 JERK     → rapid forward backward
